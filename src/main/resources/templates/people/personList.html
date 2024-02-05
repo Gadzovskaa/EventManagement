@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12" th:if="${persons.size() > 0}">
+            <div class="table-responsive ">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID:</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+
+                    <tr th:each="person : ${persons}" class="movie">
+                        <td th:text="${person.id}"></td>
+                        <td th:text="${person.name}"></td>
+                        <td th:text="${person.email}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div>
+                <a th:href="@{/movies/add-form}" class="btn btn-sm btn-success">
+                    <i class="fa fa-plus">Add new person[not impl]</i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive ">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">ID:</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:each="c : ${companies}">
+                        <td th:text="${c.id}"></td>
+                        <td th:text="${c.name}"></td>
+                        <td th:text="${c.email}"></td>
+                        <td>
+                            <a th:method="get"
+                               th:href="@{'/events/company/{id}' (id=${c.id})}"
+                               th:text="@{ 'Events By ' + ${c.name}}" ></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div>
+                <a th:href="@{/companies/newCompanyForm}" class="btn btn-sm btn-success">
+                    Add new Company
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
