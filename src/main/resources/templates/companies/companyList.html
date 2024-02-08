@@ -26,19 +26,34 @@
                         <td>
                             <a th:method="get"
                                th:href="@{'/events/company/{id}' (id=${c.id})}"
-                               th:text="@{ 'Events By ' + ${c.name}}" ></a>
+                               th:text=" 'Events By ' + ${c.name}" ></a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
 
             </div>
+
             <div>
                 <a th:href="@{/companies/newCompanyForm}" class="btn btn-sm btn-success">
                     Add new Company
                 </a>
             </div>
+
         </div>
+
+        <div>
+            <a th:href="@{/companies/allTimeAttendance}" class="btn btn-sm btn-success">
+                All Time Attendance
+            </a>
+        </div>
+
+        <div>
+            <a th:href="@{/companies/avgAttendance}" class="btn btn-sm btn-success">
+                Average Attendance
+            </a>
+        </div>
+
     </div>
 </div>
 

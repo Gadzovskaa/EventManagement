@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="table-responsive ">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Average Attendance Per Company</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:each="avg : ${avgAtt}">
+                        <td th:text="${avg.companyName}"></td>
+                        <td th:text="${avg.avgAttendance.doubleValue()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div>
+                <a >
+                    Back [to be impl]
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

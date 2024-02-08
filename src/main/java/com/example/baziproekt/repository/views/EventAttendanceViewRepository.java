@@ -1,7 +1,6 @@
 package com.example.baziproekt.repository.views;
 
 import com.example.baziproekt.model.views.EventAttendanceView;
-import com.example.baziproekt.model.views.EventsFromCompanyView;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

@@ -97,4 +97,10 @@ public class EventController {
         model.addAttribute("coords", coordinatorsOfEventsViewService.listAllCoordinatorsOfEvents());
         return "events/eventCoordinators";
     }
+
+    @GetMapping("/events/perCompany")
+    public String getEventsPerCompany (Model model) {
+        model.addAttribute("eventsPerCompany", eventService.numEventsPerCompanyReport());
+        return "events/eventsPerCompany";
+    }
 }
