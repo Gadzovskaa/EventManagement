@@ -8,7 +8,7 @@
 </head>
 <body class="container mt-5">
 
-<form th:method="post" th:action="@{/companies/create/new}">
+<form th:method="post" th:action="@{/people/new/person}">
     <div class="col-md-6">
         <div class="form-group">
             <label for="f1">Name</label>
@@ -19,7 +19,18 @@
             <input type="text" id="f2" name="email" required class="form-control">
         </div>
         <div class="form-group">
-            <button id="submit" type="submit" class="btn btn-success">Add new Company</button>
+            <label for="f2">Phone Number</label>
+            <input type="text" id="f3" name="phone" required class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="f4">Company</label><br/>
+            <select id="f4" name="companyId" class="form-control">
+                <!-- For each type you should have one <option> like below  -->
+                <option th:each="c : ${companies}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button id="submit" type="submit" class="btn btn-success">Add new Person</button>
         </div>
     </div>
 </form>

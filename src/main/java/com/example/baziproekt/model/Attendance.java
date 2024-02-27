@@ -1,11 +1,13 @@
 package com.example.baziproekt.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
+
 @Getter
 public class Attendance {
 
@@ -25,4 +27,10 @@ public class Attendance {
     @ManyToOne
     @JoinColumn(name = "eventid")
     Event eventAttended;
+
+    public Attendance(Role attendedAsRole, Person personAttended, Event eventAttended) {
+        this.attendedAsRole = attendedAsRole;
+        this.personAttended = personAttended;
+        this.eventAttended = eventAttended;
+    }
 }

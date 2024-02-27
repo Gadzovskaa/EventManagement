@@ -43,4 +43,16 @@ public class Person {
         this.email = personEmail;
         this.phone_number = phoneNumber;
     }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public void setRolesPersonHas(List<Role> rolesPersonHas) {
+        this.rolesPersonHas = rolesPersonHas;
+    }
+
+    public List<Role> getRolesPersonHas() {
+        return rolesPersonHas;
+    }
 }

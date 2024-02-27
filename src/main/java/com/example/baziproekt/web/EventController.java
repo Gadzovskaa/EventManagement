@@ -1,6 +1,7 @@
 package com.example.baziproekt.web;
 
 import com.example.baziproekt.model.Company;
+import com.example.baziproekt.model.views.CoordinatorsOfEventsView;
 import com.example.baziproekt.model.views.EventsFromCompanyView;
 import com.example.baziproekt.service.CompanyService;
 import com.example.baziproekt.service.EventService;
@@ -16,7 +17,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class EventController {
@@ -94,7 +97,9 @@ public class EventController {
 
     @GetMapping("/events/coordinators")
     public String getAllCoordinators (Model model) {
-        model.addAttribute("coords", coordinatorsOfEventsViewService.listAllCoordinatorsOfEvents());
+        List<CoordinatorsOfEventsView> list = coordinatorsOfEventsViewService.listAllCoordinatorsOfEvents();
+        Set<CoordinatorsOfEventsView> coords = new HashSet<>(list);
+        model.addAttribute("coords", coords);
         return "events/eventCoordinators";
     }
 
