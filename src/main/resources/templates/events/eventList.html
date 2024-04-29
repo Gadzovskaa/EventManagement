@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="table-responsive ">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">ID:</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Venue</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Event Type</th>
+                            <th scope="col">Budget</th>
+                            <th scope="col">Organising Company</th>
+                            <th scope="col">Coordinator</th>
+                        </tr>
+                        </thead>
+                        <tbody >
+                        <tr th:each="event : ${events}" class="movie">
+                            <td th:text="${event.id}"></td>
+                            <td th:text="${event.name}"></td>
+                            <td th:text="${event.venue}"></td>
+                            <td th:text="${event.date}"></td>
+                            <td th:text="${event.eventType}"></td>
+                            <td th:text="${event.budget}"></td>
+                            <td th:text="${event.company.name}"></td>
+                            <td th:if="${event.coordinator != null}" th:text="${event.coordinator.name}"></td>
+                            <td> <a th:href="@{'/events/attendance/{id}' (id=${event.id})}" class="btn btn-sm btn-success">
+                                View Attendance List
+                            </a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="d-flex justify-content-between mt-3">
+                    <a th:href="@{/events/newEventForm}" class="btn btn-sm btn-success">
+                        Add new event
+                    </a>
+                    <a th:href="@{/events/coordinators}" class="btn btn-sm btn-primary">
+                        List Coordinators of Events
+                    </a>
+                    <a th:href="@{/events/perCompany}" class="btn btn-sm btn-primary">
+                        Events Per Company
+                    </a>
+                </div>
+                <div>
+                    <a href="/" class="btn btn-sm btn-primary">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Event</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body class="container mt-5">
+<form th:method="post" th:action="@{/events/create/new}" class="row">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="f1">Name</label>
+            <input type="text" id="f1" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="f2">Venue</label>
+            <input type="text" id="f2" name="venue" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="f3">Date</label>
+            <!-- Do not set the value here -->
+            <input type="date" id="f3" name="date" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="f6">Event Type</label>
+            <input type="text" id="f6" name="eventType" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="f6">Budget</label>
+            <input type="number" name="budget" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="f4">Company</label><br/>
+            <select id="f4" name="companyId" class="form-control">
+                <!-- For each type you should have one <option> like below  -->
+                <option th:each="c : ${companies}" th:value="${c.id}" th:text="${c.name}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="f5">Coordinator</label><br/>
+            <select id="f5" multiple name="coordinatorId" class="form-control">
+                <!-- For each interest you should have one <option> like below  -->
+                <option th:each="person : ${people}" th:value="${person.id}" th:text="${person.name + ' ' + person.email}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button id="submit" type="submit" class="btn btn-success">Add new Event</button>
+        </div>
+        <div class="form-group">
+            <a id="back" href="/events" type="button" class="btn btn-primary">Back to users</a>
+        </div>
+    </div>
+</form>
+</body>
+</html>

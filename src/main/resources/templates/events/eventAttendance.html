@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12" th:if="${people.size() > 0}">
+            <div class="table-responsive ">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name:</th>
+                        <th scope="col">Role:</th>
+                    </tr>
+                    </thead>
+                    <tbody >
+
+                    <tr th:each="p : ${people}" class="movie">
+                        <td th:text="${p.personName}"></td>
+                        <td th:text="${p.roleType}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <a href="/events" class="btn btn-sm btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

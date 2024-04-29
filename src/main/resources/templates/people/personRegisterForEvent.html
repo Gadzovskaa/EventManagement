@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Event Registration Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+</head>
+<body class="container mt-5">
+<!-- The form should submit to ForumUsersController.create or ForumUsersController.update,
+     depending on whether we are creating or editing an entity -->
+<form th:method="post" th:action="@{'/people/registerToEvent/{personID}' (personID=${person.id})}">
+
+    <aside class="col-md-6">
+        <table class="table">
+            <tr>
+                <th>Name:</th>
+                <td th:text="${person.name}"></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td th:text="${person.email}"></td>
+            </tr>
+            <tr>
+                <th>Telephone:</th>
+                <td th:text="${person.phone_number}"></td>
+            </tr>
+        </table>
+    </aside>
+
+    <div class="col-md-6">
+            <label>Role</label><br/>
+            <select id="f5" multiple name="roleId">
+                <!-- For each interest you should have one <option> like below  -->
+                <option th:each="role : ${roles}"
+                        th:value="${role.id}"
+                        th:text="${role.roleType}"></option>
+            </select>
+        <br>
+            <label>Events</label><br/>
+            <select id="f7" multiple name="eventId">
+                <!-- For each interest you should have one <option> like below  -->
+                <option th:each="event : ${events}"
+                        th:value="${event.id}"
+                        th:text="${event.name + ' by: ' + event.company.name}"></option>
+            </select>
+        <br><br>
+
+        <button id="submit" type="submit"  class="btn btn-success">Register to Event</button>
+        <br><br>
+        <a id="back" href="/people" type="button" class="btn btn-sm btn-primary">Back to users</a>
+    </div>
+
+</form>
+
+</body>
+</html>
