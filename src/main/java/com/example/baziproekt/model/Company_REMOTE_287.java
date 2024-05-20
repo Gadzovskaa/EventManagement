@@ -30,7 +30,7 @@ public class Company {
     }
 
     public Double getAverageRating() {
-        if (this.ratings.isEmpty())
+        if(this.ratings.isEmpty())
             return 0.0;
         else {
             int sum = this.ratings.stream().mapToInt(Rating::getRating).sum();
